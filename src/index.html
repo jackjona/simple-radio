@@ -1,0 +1,26 @@
+<!-- Audio from https://listen.moe
+A Cloudflare Worker is used for the fallback mp3 stream. 
+-->
+<div class="container">
+  <h1>Simple Radio</h1>
+  <h2>Listen to top K-Pop and J-Pop hits</h2>
+  <div class="player">
+    <audio id="audio" controls>
+      <source id="audioSource" src="https://listen.moe/kpop/stream" type="audio/ogg">
+      <!-- Fallback for Safari -->
+      <source src="https://listen-moe-proxy.jackjona.workers.dev?kpop=true" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p>For the best experience, use a browser other than Safari.</p>
+    <button id="toggleButton" class="toggle-button">Switch to J-POP</button>
+  </div>
+
+  <div class="metadata" id="metadata">
+    <p id="songName"><b>Song Name:</b> -</p>
+    <p id="songArtist"><b>Artist:</b> -</p>
+    <p id="songAlbum"><b>Album:</b> -</p>
+    <p id="songDuration"><b>Duration:</b> -</p>
+    <p id="radioListeners"><b>Listeners:</b> -</p>
+    <img id="albumCover" class="image" alt="Album Cover" style="display:none;">
+  </div>
+</div>
